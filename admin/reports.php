@@ -13,6 +13,7 @@ $admin_name = $_SESSION['admin_name'] ?? 'Admin';
 /* =========================
    Helpers
 ========================= */
+
 function h($v): string { return htmlspecialchars((string)($v ?? ''), ENT_QUOTES, 'UTF-8'); }
 function money_fmt($v): string { return '$' . number_format((float)$v, 2); }
 function pct_fmt($v, $dec = 1): string { return number_format((float)$v, $dec) . '%'; }
