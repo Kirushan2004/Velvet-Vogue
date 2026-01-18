@@ -14,6 +14,7 @@ function money_fmt($v) {
     return '$' . number_format((float)$v, 2);
 }
 
+
 // Optional sorting: by total spent (default) or orders count
 $allowedSort = ['spent', 'orders'];
 $sort = isset($_GET['sort']) && in_array($_GET['sort'], $allowedSort, true)
