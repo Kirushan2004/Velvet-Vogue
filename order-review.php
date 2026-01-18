@@ -11,6 +11,7 @@ if (empty($_SESSION['customer_id'])) {
     exit;
 }
 
+
 $customer_id   = (int)$_SESSION['customer_id'];
 $customer_name = $_SESSION['customer_name'] ?? '';
 
