@@ -15,6 +15,8 @@ if (empty($_SESSION['customer_id'])) {
 $customer_id   = (int)$_SESSION['customer_id'];
 $customer_name = $_SESSION['customer_name'] ?? '';
 
+
+
 // ---------- Helpers ----------
 function money_fmt($v) {
     return '$' . number_format((float)$v, 2);
