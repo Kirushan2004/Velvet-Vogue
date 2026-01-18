@@ -1,0 +1,521 @@
+:root {
+    --admin-bg: #f5f4f8;
+    --admin-sidebar-bg: #111013;
+    --admin-sidebar-text: #fdfdfd;
+    --admin-accent: #6B1F4F;
+    --admin-accent-soft: rgba(107, 31, 79, 0.1);
+}
+
+/* ============= LAYOUT ROOT ============= */
+
+.admin-dashboard-body {
+    margin: 0;
+    padding: 0;
+    background: var(--admin-bg, #f5f4f8);
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;           /* only main area scrolls */
+}
+
+/* ============= SIDEBAR (matches sidebar.php) ============= */
+
+.sidebar {
+    width: 240px;
+    background-color: #111013;
+    color: #fdfdfd;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.3rem 1.4rem 1.3rem;
+}
+
+/* Brand block */
+.sidebar-brand {
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+}
+
+/* keep “Velvet Vogue” on one line */
+.sidebar-brand .brand-main,
+.sidebar-brand .brand-sub {
+    display: inline-block;
+    white-space: nowrap;
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+}
+
+.sidebar-brand .brand-main {
+    color: #ffffff;
+}
+
+.sidebar-brand .brand-sub {
+    color: var(--admin-accent);
+    margin-left: 0.25rem;
+}
+
+.sidebar-brand .brand-tag {
+    display: block;
+    font-size: 0.8rem;
+    color: #B3B3B3;
+    margin-top: 0.75rem;
+}
+
+/* Nav links */
+.sidebar-nav {
+    margin-top: 0.4rem;         /* only small gap under brand */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;               /* small gap between items */
+}
+
+.sidebar-nav .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #E1E1E1;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s;
+}
+
+.sidebar-nav .nav-item i {
+    font-size: 1.2rem;
+}
+
+/* Active + hover */
+.sidebar-nav .nav-item.active,
+.sidebar-nav .nav-item:hover {
+    background: rgba(255, 255, 255, 0.09);
+    color: #ffffff;
+    transform: translateX(1px);
+}
+
+/* Small extra gap before last item (logout) */
+.sidebar-nav .nav-item:last-child {
+    margin-top: 0.35rem;
+}
+
+/* ============= MAIN AREA ============= */
+
+.admin-main {
+    flex: 1;
+    margin-left: 240px;         /* same as sidebar width */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;           /* scroll inside main */
+}
+
+/* Top bar */
+.admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-page-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.15rem;
+}
+
+.admin-page-subtitle {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* User pill */
+.admin-user-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background-color: #f3f2f8;
+}
+
+.admin-user-pill i {
+    font-size: 1.6rem;
+    color: var(--admin-accent);
+}
+
+.admin-user-name {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.admin-user-role {
+    display: block;
+    font-size: 0.75rem;
+    color: #777;
+}
+
+/* Content wrapper */
+.admin-content {
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+}
+
+/* ============= STAT CARDS ============= */
+
+.admin-stat-card {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    background-color: #ffffff;
+    border: 1px solid #eceaf3;
+    box-shadow: 0 8px 20px rgba(17, 16, 19, 0.03);
+}
+
+.admin-stat-card.small-card {
+    align-items: center;
+}
+
+.admin-stat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.3rem;
+}
+
+.admin-stat-icon.revenue {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+}
+.admin-stat-icon.cost {
+    background: linear-gradient(135deg, #FF9800, #FFB74D);
+}
+.admin-stat-icon.profit {
+    background: linear-gradient(135deg, #2196F3, #64B5F6);
+}
+.admin-stat-icon.margin {
+    background: linear-gradient(135deg, #9C27B0, #BA68C8);
+}
+
+/* soft icons for secondary stats */
+.admin-stat-icon.soft {
+    color: var(--admin-accent);
+    background-color: var(--admin-accent-soft);
+}
+.admin-stat-icon.soft.orders {
+    color: #1976D2;
+    background-color: rgba(25, 118, 210, 0.1);
+}
+.admin-stat-icon.soft.customers {
+    color: #2E7D32;
+    background-color: rgba(46, 125, 50, 0.1);
+}
+.admin-stat-icon.soft.products {
+    color: #8E24AA;
+    background-color: rgba(142, 36, 170, 0.1);
+}
+.admin-stat-icon.soft.tickets {
+    color: #EF6C00;
+    background-color: rgba(239, 108, 0, 0.1);
+}
+
+.admin-stat-body {
+    flex: 1;
+}
+
+.admin-stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.1rem;
+    color: #999;
+}
+
+.admin-stat-value {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.admin-stat-hint {
+    margin: 0.1rem 0 0;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* ============= PANELS ============= */
+
+.admin-panel {
+    border-radius: 18px;
+    background-color: #ffffff;
+    border: 1px solid #ebe7f4;
+    box-shadow: 0 12px 25px rgba(17, 16, 19, 0.04);
+    padding: 1rem 1.15rem 1.1rem;
+}
+
+.admin-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.admin-panel-title {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.admin-panel-subtitle {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.admin-panel-body {
+    margin-top: 0.5rem;
+}
+
+/* List inside panels */
+.admin-list .list-group-item {
+    border: none;
+    border-bottom: 1px solid #f1edf8;
+    padding: 0.5rem 0.25rem;
+}
+
+.admin-list .list-group-item:last-child {
+    border-bottom: none;
+}
+
+.admin-list-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Scrollable list bodies (for side lists) */
+.admin-panel-scroll {
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.admin-panel-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.admin-panel-scroll::-webkit-scrollbar-thumb {
+    background: #d0cce2;
+    border-radius: 4px;
+}
+
+/* Chart canvas basic */
+#revenueChart {
+    width: 100% !important;
+}
+
+/* ============= RESPONSIVE ============= */
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        display: none;          /* simple hide on small screens */
+    }
+
+    .admin-main {
+        margin-left: 0;
+    }
+
+    .admin-content {
+        padding: 1rem;
+    }
+
+    .admin-topbar {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* === Customer purchases page === */
+
+.customer-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #6B1F4F;
+    overflow: hidden;
+    margin-right: 0.6rem;
+    text-transform: uppercase;
+}
+
+.customer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Make summary cards the same height (customer purchases page) */
+.customer-summary-row .admin-stat-card {
+    height: 100%;
+}
+
+/* Make chart + table panels the same height (customer purchases page) */
+.customer-panels-row .admin-panel {
+    height: 100%;
+}
+
+/* Scrollable table area so panel height stays nice */
+.purchase-table-wrapper {
+    max-height: 340px;      /* adjust if needed */
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.purchase-table-wrapper table {
+    margin-bottom: 0;
+}
+
+.purchase-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.purchase-table-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+}
+
+/* Order items table: keep images small */
+.order-items-wrapper {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.order-items-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+.order-items-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 999px;
+}
+
+/* Product image thumbnail in order-view */
+.order-item-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f3f2f8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.order-item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================
+   Reports/Dashboard charts layout
+   ========================= */
+
+/* We reuse this for DASHBOARD by adding class "reports-page" to admin-main */
+
+.reports-page .report-chart-panel {
+    display: flex;
+    flex-direction: column;
+    height: 320px;              /* both chart cards same height */
+}
+
+.reports-page .report-chart-panel .report-chart-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;           /* stops canvas spilling out */
+    padding: 0.25rem 0.25rem 0.75rem;
+    box-sizing: border-box;
+}
+
+.reports-page .report-chart-container canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;    /* chart fits inside the container */
+}
+
+/* Top products / Top customers: same height, scrollable tables */
+.reports-page .report-bottom-panel {
+    display: flex;
+    flex-direction: column;
+    height: 320px;              /* same height for both bottom cards */
+}
+
+.reports-page .report-bottom-panel .report-bottom-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.reports-page .report-bottom-panel table {
+    margin-bottom: 0;
+}
+
+/* Product thumb in Top products (small square, image fully fitted) */
+.reports-page .report-product-thumb {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f3f2f8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+.reports-page .report-product-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Slim scrollbar for the bottom tables */
+.reports-page .report-bottom-body::-webkit-scrollbar {
+    width: 6px;
+}
+.reports-page .report-bottom-body::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 999px;
+}
+
+/* =========================
+   Generic image preview modal
+   (used for profile, customer, product, complaint images)
+   ========================= */
+
+.image-preview-modal .modal-dialog {
+    max-width: 520px;
+}
+
+.image-preview-modal .modal-body img {
+    max-height: 420px;
+    width: auto;
+    margin: 0 auto;
+}

@@ -1,0 +1,143 @@
+/* Admin login page layout */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top left, #E5B8D2 0, #F5F5F7 40%, #FFFFFF 100%);
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.admin-login-wrapper {
+    max-width: 420px;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.admin-login-card {
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* Branding */
+
+.admin-login-logo {
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
+}
+
+.admin-login-logo span {
+    color: var(--color-primary, #6B1F4F);
+}
+
+.admin-login-subtitle {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.admin-login-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-login-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(107, 31, 79, 0.08);
+    color: var(--color-primary, #6B1F4F);
+    font-size: 1.6rem;
+}
+
+/* Inputs */
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.admin-login-card .input-group-text {
+    background-color: #f5f5f5;
+    border-right: none;
+    border-radius: 999px 0 0 999px;
+}
+
+.admin-login-card .form-control {
+    border-left: none;
+    font-size: 0.9rem;
+    border-radius: 0 999px 999px 0;
+}
+
+.admin-login-card .form-control:focus {
+    box-shadow: none;
+    border-color: var(--color-primary, #6B1F4F);
+}
+
+.admin-login-card .input-group-text.toggle-password {
+    border-left: none;
+    border-radius: 0 999px 999px 0;
+    cursor: pointer;
+}
+
+/* Remember + Forgot password row */
+
+.admin-login-card .form-check-label {
+    font-size: 0.8rem;
+}
+
+.forgot-link {
+    white-space: nowrap;       /* keep in one line */
+    font-size: 0.8rem;
+}
+
+/* Footer links */
+
+.admin-login-footer-links {
+    font-size: 0.8rem;
+}
+
+.admin-login-footer-links a {
+    color: var(--color-primary, #6B1F4F);
+    text-decoration: none;
+}
+
+.admin-login-footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Back to store link */
+
+.back-to-site {
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #555;
+}
+
+.back-to-site i {
+    font-size: 1.1rem;
+}
+
+.back-to-site:hover {
+    color: var(--color-primary, #6B1F4F);
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 575.98px) {
+    .admin-login-card {
+        padding: 1.75rem 1.25rem;
+    }
+}

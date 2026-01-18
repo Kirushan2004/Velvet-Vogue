@@ -1,0 +1,1236 @@
+/* =========================================
+   Velvet Vogue – Global Styles (style.css)
+   ========================================= */
+
+:root {
+    --vv-bg: #f6f4fb;
+    --vv-bg-muted: #faf9fe;
+    --vv-surface: #ffffff;
+    --vv-border-soft: #ece5f5;
+    --vv-border-strong: #ddd4ef;
+
+    --vv-text-main: #2b2438;
+    --vv-text-muted: #7b738e;
+    --vv-text-soft: #a49bb6;
+
+    --vv-accent: #6b1f4f;
+    --vv-accent-soft: rgba(107, 31, 79, 0.08);
+    --vv-accent-strong: #4d1137;
+
+    --vv-sale: #e53935;
+    --vv-new: #1e88e5;
+    --vv-hot: #fb8c00;
+
+    --vv-radius-lg: 22px;
+    --vv-radius-md: 14px;
+    --vv-radius-sm: 999px;
+
+    --vv-shadow-soft: 0 16px 40px rgba(17, 16, 19, 0.08);
+    --vv-shadow-subtle: 0 10px 26px rgba(17, 16, 19, 0.04);
+}
+
+/* ============ RESET / BASE ============ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--vv-text-main);
+    background: var(--vv-bg);
+}
+
+.vv-body {
+    background: radial-gradient(circle at top left, #f5e7ff 0, #f6f4fb 38%, #f6f4fb 100%);
+}
+
+.vv-container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0.3rem;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: #1f152e;
+}
+
+p {
+    margin: 0 0 0.6rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--vv-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--vv-accent-strong);
+    text-decoration: none;
+}
+
+/* Simple utility */
+
+.text-muted {
+    color: var(--vv-text-soft) !important;
+}
+
+/* ============ HEADER / NAV ============ */
+.vv-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(16px);
+    background: linear-gradient(
+        180deg,
+        rgba(246, 244, 251, 0.98),
+        rgba(246, 244, 251, 0.92),
+        rgba(246, 244, 251, 0.94)
+    );
+    border-bottom: 1px solid rgba(221, 212, 239, 0.8);
+}
+
+.vv-nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.75rem;
+}
+
+/* logo – keep “Velvet Vogue” in one line */
+
+.vv-logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.28rem;
+    line-height: 1.1;
+}
+
+.vv-logo-main,
+.vv-logo-sub {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 1.05rem;
+}
+
+.vv-logo-sub {
+    color: var(--vv-accent);
+}
+
+/* nav links */
+
+.vv-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    font-size: 0.85rem;
+}
+
+.vv-nav a {
+    position: relative;
+    color: var(--vv-text-muted);
+    font-weight: 500;
+}
+
+.vv-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    width: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--vv-accent);
+    transition: width 0.18s ease;
+}
+
+.vv-nav a:hover {
+    color: var(--vv-text-main);
+}
+
+.vv-nav a:hover::after,
+.vv-nav a.active::after {
+    width: 18px;
+}
+
+.vv-nav a.active {
+    color: var(--vv-text-main);
+}
+
+/* nav actions */
+.vv-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vv-icon-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid var(--vv-border-soft);
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--vv-text-muted);
+    cursor: pointer;
+    transition: background 0.15s, box-shadow 0.15s, transform 0.08s;
+    position: relative;
+}
+
+.vv-icon-btn:hover {
+    background: #f2ecfb;
+    box-shadow: 0 6px 14px rgba(39, 18, 66, 0.08);
+    transform: translateY(-1px);
+}
+
+.vv-count-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    min-width: 15px;
+    height: 15px;
+    border-radius: 999px;
+    background: var(--vv-sale);
+    color: #fff;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vv-pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    padding: 0.28rem 0.9rem;
+    font-size: 0.78rem;
+    border: 1px solid rgba(107, 31, 79, 0.24);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--vv-accent);
+}
+
+.vv-pill-link i {
+    font-size: 1rem;
+}
+
+.vv-pill-link:hover {
+    background: #f7eefb;
+    color: var(--vv-accent-strong);
+}
+
+/* ============ BUTTONS ============ */
+
+.vv-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--vv-radius-sm);
+    font-size: 0.84rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s, transform 0.08s, border-color 0.15s;
+}
+
+.vv-btn:active {
+    transform: translateY(1px);
+}
+
+/* primary */
+.vv-btn-primary {
+    background: linear-gradient(135deg, var(--vv-accent), #8b2f65);
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(107, 31, 79, 0.5);
+}
+
+.vv-btn-primary:hover {
+    background: linear-gradient(135deg, #5c1843, #7a2557);
+}
+
+/* secondary (white) */
+
+.vv-btn-secondary,
+.vv-btn-secondary-sm {
+    background: #ffffff;
+    color: var(--vv-accent);
+    border: 1px solid rgba(107, 31, 79, 0.2);
+    box-shadow: 0 8px 18px rgba(17, 16, 19, 0.06);
+}
+
+.vv-btn-secondary:hover,
+.vv-btn-secondary-sm:hover {
+    background: #f7f0fa;
+}
+
+.vv-btn-secondary-sm {
+    padding: 0.35rem 0.9rem;
+    font-size: 0.78rem;
+    border-radius: 999px;
+}
+
+/* outline */
+.vv-btn-outline {
+    background: #fff;
+    color: var(--vv-accent);
+    border-color: rgba(107, 31, 79, 0.35);
+}
+
+.vv-btn-outline:hover {
+    background: #fdf7ff;
+}
+
+/* ghost */
+.vv-btn-ghost {
+    background: transparent;
+    color: var(--vv-text-muted);
+    border-color: rgba(219, 210, 237, 0.95);
+}
+
+.vv-btn-ghost:hover {
+    background: #f5efff;
+}
+
+/* active ghost (wishlist on) */
+.vv-btn-ghost.active {
+    background: var(--vv-accent-soft);
+    color: var(--vv-accent);
+    border-color: rgba(107, 31, 79, 0.3);
+}
+
+/* small chip */
+.vv-ghost-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 999px;
+    border: 1px dashed rgba(255, 255, 255, 0.65);
+    padding: 0.28rem 0.8rem;
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+}
+
+/* ============ HERO ============ */
+
+.vv-hero {
+    padding: 1.4rem 0 2.2rem;
+}
+
+.vv-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+    gap: 2.1rem;
+    align-items: center;
+}
+
+/* copy */
+
+.vv-hero-copy h1 {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.vv-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vv-text-soft);
+    margin-bottom: 0.35rem;
+}
+
+.vv-hero-sub {
+    font-size: 0.9rem;
+    color: var(--vv-text-muted);
+    margin-bottom: 0.9rem;
+    max-width: 420px;
+}
+
+.vv-hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.vv-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: var(--vv-text-soft);
+}
+
+.vv-meta-label {
+    display: block;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.7rem;
+    margin-bottom: 0.05rem;
+}
+
+/* hero media */
+
+.vv-hero-media {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vv-hero-card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: var(--vv-radius-lg);
+    background: radial-gradient(circle at 0 0, #fce3ff 0, #120f1b 32%, #17111f 100%);
+    box-shadow: var(--vv-shadow-soft);
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.vv-hero-card-media {
+    position: relative;
+    padding: 1rem 1.1rem 0.7rem;
+    min-height: 160px;
+    overflow: hidden;
+}
+
+/* gradient mask */
+.vv-hero-image-mask {
+    position: absolute;
+    inset: 0.9rem 1.1rem 0.9rem 1.1rem;
+    border-radius: 18px;
+    background: radial-gradient(circle at 15% 0, #f5f3ff 0, #31203c 40%, #120916 100%);
+    opacity: 0.96;
+}
+
+.vv-hero-label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(15, 10, 21, 0.9);
+    margin-bottom: 0.6rem;
+}
+
+.vv-hero-label .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #4caf50;
+}
+
+.vv-hero-pill {
+    position: relative;
+    z-index: 1;
+    border-radius: 999px;
+    background: rgba(26, 18, 38, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    padding: 0.38rem 0.9rem;
+    font-size: 0.76rem;
+    color: rgba(249, 245, 255, 0.96);
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.vv-hero-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.9rem 0.7rem 1.1rem;
+    gap: 0.75rem;
+    background: linear-gradient(90deg, rgba(15, 12, 24, 0.98), rgba(38, 25, 53, 0.94));
+}
+
+.vv-hero-small {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.1rem;
+}
+
+.vv-hero-title {
+    font-family: "Poppins", system-ui, -apple-system, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* ============ SECTIONS & CHIPS ============ */
+.vv-section {
+    padding: 1.8rem 0;
+}
+
+.vv-section-muted {
+    padding: 1.8rem 0;
+    background: var(--vv-bg-muted);
+}
+
+.vv-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+}
+
+.vv-section-header-tight {
+    margin-bottom: 0.6rem;
+}
+
+.vv-section-header-centered {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.vv-section-sub {
+    font-size: 0.84rem;
+    color: var(--vv-text-muted);
+}
+
+.vv-link-reset {
+    font-size: 0.78rem;
+    color: var(--vv-text-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.vv-link-reset i {
+    font-size: 1rem;
+}
+
+.vv-link-reset:hover {
+    color: var(--vv-accent);
+}
+
+/* chips */
+
+.vv-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.vv-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.78rem;
+    border: 1px solid #e3ddf4;
+    background: #fff;
+    color: #726889;
+    cursor: pointer;
+}
+
+.vv-chip.active {
+    background: var(--vv-accent);
+    border-color: var(--vv-accent);
+    color: #fff;
+}
+
+/* inline filters (sort/view + search) */
+
+.vv-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: #857d95;
+}
+
+.vv-filter-search {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--vv-border-strong);
+    padding: 0.18rem 0.8rem;
+    background: #fff;
+    gap: 0.35rem;
+}
+
+.vv-filter-search i {
+    font-size: 1rem;
+    color: var(--vv-text-soft);
+}
+
+.vv-filter-search input {
+    border: none;
+    outline: none;
+    font-size: 0.78rem;
+    background: transparent;
+    min-width: 150px;
+}
+
+.vv-inline-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.vv-inline-select select {
+    border-radius: 999px;
+    border: 1px solid var(--vv-border-strong);
+    padding: 0.2rem 0.8rem;
+    font-size: 0.78rem;
+    background: #fff;
+    color: var(--vv-text-main);
+}
+
+.vv-inline-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    color: #857d95;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* ============ PRODUCT GRID ============ */
+
+.vv-product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* card */
+
+.vv-product-card {
+    background: #ffffff;
+    border-radius: var(--vv-radius-md);
+    border: 1px solid var(--vv-border-soft);
+    box-shadow: var(--vv-shadow-subtle);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 216px;        /* 5 cards per row inside 1200px container */
+    min-height: 310px;
+}
+
+/* media area */
+
+.vv-product-media {
+    padding: 0.55rem 0.55rem 0.3rem;
+}
+
+.vv-product-media-inner {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f4f3fb;
+    /* fixed aspect ratio for all product images */
+    padding-top: 130%;
+}
+
+.vv-product-media-inner img,
+.vv-product-placeholder {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.vv-product-media-inner img {
+    object-fit: cover;
+}
+
+/* like button in image corner */
+
+.vv-product-like-btn {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #c52b5a;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+}
+
+.vv-product-like-btn.is-liked {
+    background: #c52b5a;
+    color: #fff;
+}
+
+/* placeholder if no image */
+
+.vv-product-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c1bad8;
+    font-size: 2rem;
+}
+
+/* badges – horizontal row */
+
+.vv-product-badges {
+    position: absolute;
+    top: 0.45rem;
+    left: 0.5rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    z-index: 3;
+}
+
+.vv-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.12rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
+}
+
+.vv-badge-sale { background: var(--vv-sale); }
+.vv-badge-new  { background: var(--vv-new); }
+.vv-badge-hot  { background: var(--vv-hot); }
+
+/* body */
+
+.vv-product-body {
+    padding: 0.6rem 0.7rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.vv-product-name {
+    font-size: 0.9rem;
+    font-family: "Poppins", system-ui, sans-serif;
+    margin: 0;
+}
+
+.vv-product-meta {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--vv-text-soft);
+}
+
+.vv-product-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-top: 0.15rem;
+}
+
+.vv-price-main {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--vv-accent);
+}
+
+.vv-price-old {
+    font-size: 0.78rem;
+    color: var(--vv-text-soft);
+    text-decoration: line-through;
+}
+
+/* actions */
+
+.vv-product-actions {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.vv-btn-sm {
+    padding: 0.32rem 0.8rem;
+    font-size: 0.78rem;
+    border-radius: 999px;
+    flex: 0 0 auto; /* no stretching, keeps buttons compact */
+}
+
+.vv-product-actions .vv-btn-ghost {
+    width: 34px;
+    padding-inline: 0;
+}
+
+/* ============ FEATURE CARDS ============ */
+
+.vv-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.vv-feature-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid var(--vv-border-soft);
+    padding: 0.9rem 1rem;
+    box-shadow: var(--vv-shadow-subtle);
+}
+
+.vv-feature-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: var(--vv-accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--vv-accent);
+    margin-bottom: 0.4rem;
+}
+
+/* ============ COLLECTION STRIP ============ */
+
+.vv-collection-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+}
+
+.vv-collection-card {
+    background: #fff;
+    border-radius: 18px;
+    border: 1px solid var(--vv-border-soft);
+    overflow: hidden;
+    box-shadow: var(--vv-shadow-subtle);
+    display: flex;
+    flex-direction: column;
+}
+
+.vv-collection-media {
+    height: 130px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* gradient placeholders */
+.vv-collection-media--dresses {
+    background-image: linear-gradient(135deg, #f8e9ff, #f15f79);
+}
+.vv-collection-media--tailoring {
+    background-image: linear-gradient(135deg, #e3f2fd, #3949ab);
+}
+.vv-collection-media--accessories {
+    background-image: linear-gradient(135deg, #fff3e0, #fb8c00);
+}
+
+.vv-collection-body {
+    padding: 0.75rem 0.9rem 0.9rem;
+}
+
+.vv-collection-body h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.vv-collection-body p {
+    font-size: 0.82rem;
+    color: var(--vv-text-muted);
+}
+
+/* ============ ABOUT / JOURNAL / HELP ============ */
+
+.vv-bottom-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+    gap: 1.4rem;
+    align-items: flex-start;
+}
+
+.vv-body-text {
+    font-size: 0.85rem;
+    color: var(--vv-text-muted);
+}
+
+/* journal */
+
+.vv-journal {
+    margin-top: 0.9rem;
+}
+
+.vv-journal-title {
+    font-family: "Poppins", system-ui, sans-serif;
+    font-size: 0.9rem;
+}
+
+.vv-journal-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.25rem 0 0;
+    font-size: 0.82rem;
+    color: var(--vv-text-muted);
+}
+
+.vv-journal-list li {
+    position: relative;
+    padding-left: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.vv-journal-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--vv-accent);
+}
+
+/* help / contact card */
+
+.vv-help-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid var(--vv-border-soft);
+    padding: 1rem 1.1rem;
+    box-shadow: var(--vv-shadow-subtle);
+}
+
+.vv-help-card h3 {
+    margin-bottom: 0.45rem;
+    font-size: 0.95rem;
+}
+
+.vv-help-intro {
+    margin-bottom: 0.6rem;
+    font-size: 0.82rem;
+    color: #6a647f;
+}
+
+.vv-help-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 0.8rem;
+    font-size: 0.82rem;
+    color: #6c647e;
+}
+
+.vv-help-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.25rem;
+}
+
+.vv-help-list i {
+    color: var(--vv-accent);
+    font-size: 1rem;
+}
+
+.vv-help-actions {
+    margin-top: 0.3rem;
+}
+
+.vv-help-small {
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--vv-text-soft);
+}
+
+/* ============ FOOTER ============ */
+
+.vv-footer {
+    border-top: 1px solid #e3dde9;
+    background: var(--vv-bg-muted);
+    padding-block: 1.3rem;
+    font-size: 0.8rem;
+    color: var(--vv-text-soft);
+}
+
+.vv-footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.vv-footer-brand .vv-logo {
+    margin-bottom: 0.4rem;
+}
+
+.vv-footer-copy {
+    margin: 0 0 0.2rem;
+    max-width: 260px;
+}
+
+.vv-footer-copy-small {
+    margin: 0.15rem 0 0;
+    color: #a39ab9;
+}
+
+.vv-footer-column h4 {
+    margin: 0 0 0.4rem;
+    font-size: 0.85rem;
+    color: #4a405a;
+    font-family: "Poppins", system-ui, sans-serif;
+}
+
+.vv-footer-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.vv-footer-list li {
+    margin-bottom: 0.2rem;
+}
+
+.vv-footer-list a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.vv-footer-list a:hover {
+    color: var(--vv-accent);
+}
+
+/* social icons */
+
+.vv-footer-social {
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 0.4rem;
+}
+
+.vv-footer-social a {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: 1px solid #ded5f0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--vv-accent);
+    font-size: 1rem;
+}
+
+.vv-footer-social a:hover {
+    background: #f1e6fb;
+}
+
+.vv-footer-legal {
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #a39ab9;
+}
+
+.vv-footer-legal a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.vv-footer-legal a:hover {
+    color: var(--vv-accent);
+}
+
+/* ============ AUTH (login / forgot) – optional ============ */
+
+.auth-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #f8ecff 0, #f6f4fb 40%, #f6f4fb 100%);
+}
+
+.auth-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid var(--vv-border-soft);
+    box-shadow: var(--vv-shadow-soft);
+    max-width: 420px;
+    width: 100%;
+    padding: 1.2rem 1.4rem 1.3rem;
+}
+
+.auth-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+}
+
+.auth-brand-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+}
+
+.auth-muted {
+    font-size: 0.78rem;
+    color: var(--vv-text-soft);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 991.98px) {
+    .vv-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .vv-hero-media {
+        justify-content: flex-start;
+    }
+
+    .vv-bottom-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .vv-footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .vv-product-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .vv-nav-wrapper {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .vv-nav {
+        display: none; /* simple collapse */
+    }
+
+    .vv-product-card {
+        width: calc(50% - 0.5rem);
+    }
+
+    .vv-section,
+    .vv-section-muted {
+        padding: 1.4rem 0;
+    }
+
+    .vv-inline-filters {
+        justify-content: flex-start;
+    }
+}
+/* Logged-in customer pill */
+.vv-user-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.28rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(107, 31, 79, 0.24);
+    font-size: 0.78rem;
+    color: var(--vv-text-main);
+}
+
+.vv-user-pill i {
+    font-size: 1.1rem;
+    color: var(--vv-accent);
+}
+
+.vv-user-name {
+    font-weight: 500;
+}
+
+.vv-user-logout {
+    font-size: 0.76rem;
+    color: var(--vv-text-soft);
+    text-decoration: none;
+    border-left: 1px solid rgba(211, 202, 232, 0.7);
+    padding-left: 0.45rem;
+}
+
+.vv-user-logout:hover {
+    color: var(--vv-accent);
+}
+/* ============ CUSTOMER ACCOUNT DROPDOWN ============ */
+
+.vv-account-menu {
+    position: relative;
+}
+
+.vv-account-trigger {
+    cursor: pointer;
+}
+
+.vv-account-caret {
+    font-size: 0.9rem;
+}
+
+.vv-account-dropdown {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 4px);
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid var(--vv-border-soft);
+    box-shadow: var(--vv-shadow-subtle);
+    padding: 0.35rem 0.2rem;
+    min-width: 180px;
+    display: none;
+    z-index: 40;
+}
+
+.vv-account-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    color: var(--vv-text-main);
+}
+
+.vv-account-dropdown a i {
+    font-size: 1rem;
+    color: var(--vv-accent);
+}
+
+.vv-account-dropdown a:hover {
+    background: #f7f0fa;
+    color: var(--vv-accent);
+}
+
+/* show dropdown on hover */
+.vv-account-menu:hover .vv-account-dropdown {
+    display: block;
+}
