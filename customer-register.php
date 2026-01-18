@@ -44,6 +44,7 @@ if ($qres = $conn->query($qsql)) {
     $qres->free();
 }
 
+
 /* ---------------- default values ---------------- */
 $full_name      = '';
 $email          = '';
