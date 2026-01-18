@@ -664,6 +664,7 @@ function setupMobileSidebar(){
 }
 
 
+
 /* ============ Profile photo modal + live preview ============ */
 function setupProfilePhotoPreview(){
   const fileInput       = document.getElementById('adminPhotoInput');
