@@ -62,6 +62,7 @@ $completedStatus  = 'completed';
    KPI Queries
 ========================= */
 
+
 // Total revenue
 $totalRevenue = 0.0;
 $q = $conn->query("SELECT COALESCE(SUM(total_amount),0) AS v FROM orders WHERE status IN {$salesStatusesSql}");
