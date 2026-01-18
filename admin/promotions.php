@@ -36,6 +36,7 @@ function dt_from_input(?string $v): ?string {
     $dt = DateTime::createFromFormat('Y-m-d\TH:i', $v);
     if ($dt instanceof DateTime) return $dt->format('Y-m-d H:i:s');
 
+    
     // fallback if already in SQL format
     $dt2 = DateTime::createFromFormat('Y-m-d H:i:s', $v);
     if ($dt2 instanceof DateTime) return $dt2->format('Y-m-d H:i:s');
