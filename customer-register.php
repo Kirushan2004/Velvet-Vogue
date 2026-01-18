@@ -14,6 +14,8 @@ if (!empty($_SESSION['customer_id'])) {
     exit;
 }
 
+
+
 $errors = [];
 $popupPayload = null;
 
