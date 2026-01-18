@@ -2,8 +2,10 @@
 // checkout.php (Modern + responsive + mobile menu + image fallback + ✅ cart badge = distinct products)
 // ✅ SUCCESS MESSAGE should show in customer-orders.php (via SESSION flash), not on checkout page
 
+
 session_start();
 require_once 'db.php';
+
 
 // Set timezone for date/time display
 date_default_timezone_set('Asia/Colombo');
