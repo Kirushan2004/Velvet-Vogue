@@ -49,6 +49,7 @@ if (!$customer) {
     exit;
 }
 
+
 // ----- pie chart data: category split (using products + categories) -----
 $chart_labels = [];
 $chart_values = [];
